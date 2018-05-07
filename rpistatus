@@ -1,2 +1,13 @@
 #!/bin/bash
-lets get it done 
+
+echo "ALIVE?"
+echo "DEAD?"
+for i in {01..18}
+do
+	ping -c 1 -w 1 rpi$i >/dev/null
+	if [ $? == 0 ] ; then
+		echo rpi$i is alive
+	else 
+		echo rpi$i is dead
+	fi
+done
